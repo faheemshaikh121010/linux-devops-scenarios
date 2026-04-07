@@ -1,33 +1,39 @@
 steps:
-  - title: "Step 1: Navigate and List Files"
+  - title: "Step 1: Navigate to Working Directory"
     text: |
-      Navigate to the working directory and list files.
+      Navigate to the lab directory.
 
-      Run:
       ```
       cd /root/devops-lab
+      ```
+    verify: |
+      bash /root/verify.sh step1
+
+  - title: "Step 2: List Files"
+    text: |
+      List all files in the directory.
+
+      ```
       ls -l
       ```
     verify: |
-      cd /root/devops-lab && ls file1.txt
+      bash /root/verify.sh step2
 
-  - title: "Step 2: Check Disk Usage"
+  - title: "Step 3: Check Disk Usage"
     text: |
       Check disk usage and identify large files.
 
-      Run:
       ```
       df -h
       du -sh *
       ```
     verify: |
-      du -sh /root/devops-lab/bigfile.log
+      bash /root/verify.sh step3
 
-  - title: "Step 3: Find High CPU Process"
+  - title: "Step 4: Find High CPU Process"
     text: |
-      Identify which process is consuming CPU.
+      Identify the process consuming high CPU.
 
-      Run:
       ```
       top
       ```
@@ -36,38 +42,35 @@ steps:
       htop
       ```
     verify: |
-      pgrep yes
+      bash /root/verify.sh step4
 
-  - title: "Step 4: Kill Process"
+  - title: "Step 5: Kill High CPU Process"
     text: |
-      Kill the high CPU process.
+      Kill the process consuming CPU.
 
-      Run:
       ```
       kill -9 <PID>
       ```
     verify: |
-      ! pgrep yes
+      bash /root/verify.sh step5
 
-  - title: "Step 5: Fix Disk Space"
+  - title: "Step 6: Fix Disk Space"
     text: |
-      Remove the large file to free space.
+      Remove the large file.
 
-      Run:
       ```
       rm -f /root/devops-lab/bigfile.log
       ```
     verify: |
-      ! test -f /root/devops-lab/bigfile.log
+      bash /root/verify.sh step6
 
-  - title: "Step 6: Permissions Fix"
+  - title: "Step 7: Fix Permissions"
     text: |
-      Create a file and change its permissions.
+      Create a secure file with proper permissions.
 
-      Run:
       ```
       touch secure.txt
       chmod 600 secure.txt
       ```
     verify: |
-      stat -c "%a" secure.txt | grep 600
+      bash /root/verify.sh step7
