@@ -12,9 +12,16 @@
         "title": "Linux Basics",
         "text": "steps/steps.yaml"
       }
-    ]
+    ],
+    "assets": {
+      "host01": [
+        { "file": "background.sh", "target": "/root/background.sh" },
+        { "file": "verify.sh", "target": "/root/verify.sh" }
+      ]
+    }
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu",
+    "init": "chmod +x /root/background.sh /root/verify.sh && bash /root/background.sh"
   }
 }
