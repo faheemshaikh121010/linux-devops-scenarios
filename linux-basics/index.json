@@ -1,6 +1,6 @@
 {
   "title": "Linux Hands-on Scenarios for DevOps Engineers",
-  "description": "Practice real-world Linux commands, troubleshooting, and system operations used in DevOps.",
+  "description": "Practice real-world Linux commands and troubleshooting.",
   "difficulty": "beginner",
   "time": "20 minutes",
   "details": {
@@ -9,13 +9,12 @@
     },
     "steps": [
       {
-        "title": "File Management",
-        "text": "steps/steps.yaml",
-        "foreground": "bash"
+        "title": "Linux Basics",
+        "text": "steps/steps.yaml"
       }
     ]
   },
-  "environment": {
-    "uilayout": "terminal"
+  "backend": {
+    "imageid": "ubuntu"
   }
 }
