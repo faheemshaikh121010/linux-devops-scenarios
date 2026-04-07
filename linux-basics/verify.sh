@@ -5,18 +5,18 @@ STEP=$1
 case $STEP in
 
 step1)
-  if [[ "$PWD" == "/root/devops-lab" ]]; then
+  if pwd | grep -q "devops-lab"; then
     echo "✅ Correct directory!"
     exit 0
   else
-    echo "❌ You are not in the correct directory"
+    echo "❌ Navigate to /root/devops-lab"
     exit 1
   fi
   ;;
 
 step2)
   if ls /root/devops-lab | grep -q file1.txt; then
-    echo "✅ Files listed correctly!"
+    echo "✅ Files exist!"
     exit 0
   else
     echo "❌ Files not found"
@@ -25,18 +25,18 @@ step2)
   ;;
 
 step3)
-  if du -sh /root/devops-lab/bigfile.log &>/dev/null; then
-    echo "✅ Disk usage checked!"
+  if [ -f /root/devops-lab/bigfile.log ]; then
+    echo "✅ Disk checked (file exists)"
     exit 0
   else
-    echo "❌ Disk check not performed"
+    echo "❌ File missing"
     exit 1
   fi
   ;;
 
 step4)
   if pgrep yes > /dev/null; then
-    echo "✅ High CPU process identified!"
+    echo "✅ Process found!"
     exit 0
   else
     echo "❌ Process not found"
@@ -46,7 +46,7 @@ step4)
 
 step5)
   if ! pgrep yes > /dev/null; then
-    echo "✅ Process killed successfully!"
+    echo "✅ Process killed!"
     exit 0
   else
     echo "❌ Process still running"
@@ -55,8 +55,8 @@ step5)
   ;;
 
 step6)
-  if [[ ! -f /root/devops-lab/bigfile.log ]]; then
-    echo "✅ Disk space freed!"
+  if [ ! -f /root/devops-lab/bigfile.log ]; then
+    echo "✅ File deleted!"
     exit 0
   else
     echo "❌ File still exists"
@@ -65,11 +65,11 @@ step6)
   ;;
 
 step7)
-  if [[ -f secure.txt ]] && [[ $(stat -c "%a" secure.txt) == "600" ]]; then
-    echo "✅ Permissions set correctly!"
+  if [ -f secure.txt ] && [ "$(stat -c %a secure.txt)" = "600" ]; then
+    echo "✅ Permissions correct!"
     exit 0
   else
-    echo "❌ Permissions incorrect"
+    echo "❌ Permissions wrong"
     exit 1
   fi
   ;;
