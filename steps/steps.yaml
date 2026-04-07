@@ -1,0 +1,59 @@
+steps:
+- title: "Step 1: Navigate and List Files"
+  text: |
+    Navigate to the working directory and list files.
+
+    Run:
+    cd /root/devops-lab
+    ls -l
+  verify: |
+    cd /root/devops-lab && ls file1.txt
+
+- title: "Step 2: Check Disk Usage"
+  text: |
+    Check disk usage and identify large files.
+
+    Run:
+    df -h
+    du -sh *
+  verify: |
+    du -sh /root/devops-lab/bigfile.log
+
+- title: "Step 3: Find High CPU Process"
+  text: |
+    Identify which process is consuming CPU.
+
+    Run:
+    top
+    OR
+    htop
+  verify: |
+    pgrep yes
+
+- title: "Step 4: Kill Process"
+  text: |
+    Kill the high CPU process.
+
+    Run:
+    kill -9 <PID>
+  verify: |
+    ! pgrep yes
+
+- title: "Step 5: Fix Disk Space"
+  text: |
+    Remove the large file to free space.
+
+    Run:
+    rm -f /root/devops-lab/bigfile.log
+  verify: |
+    ! test -f /root/devops-lab/bigfile.log
+
+- title: "Step 6: Permissions Fix"
+  text: |
+    Create a file and change its permissions.
+
+    Run:
+    touch secure.txt
+    chmod 600 secure.txt
+  verify: |
+    stat -c "%a" secure.txt | grep 600
