@@ -1,19 +1,31 @@
+<<<<<<< HEAD
 slug: alb-ingress-scenario
 id: alb-ingress-scenario
+=======
+slug: alb-ingress-basic
+id: alb-ingress-basic
+>>>>>>> parent of 4fa93a3 (fix scenario visibility)
 type: kubernetes
-
-title: "Kubernetes Ingress with ALB"
-description: "Simple ingress scenario using NodePort and ALB"
+title: "Kubernetes Ingress with AWS ALB Controller"
+intro:
+  file: intro.md
+description: "Deploy a simple application and expose it using Ingress with ALB Controller"
 
 difficulty: intermediate
 duration: 20
-
-intro:
-  file: intro.md
 
 backend:
   image: killercoda/kubernetes:1.27
 
 steps:
-- title: "Step 1: Deployment"
+- title: "Step 1: Create Deployment"
   file: steps/step1.md
+
+- title: "Step 2: Create NodePort Service"
+  file: steps/step2.md
+
+- title: "Step 3: Create Ingress"
+  file: steps/step3.md
+
+- title: "Step 4: Verify Setup"
+  file: steps/step4.md
