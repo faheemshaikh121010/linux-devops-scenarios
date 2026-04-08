@@ -11,10 +11,6 @@
       {
         "title": "Linux Basics",
         "text": "steps/steps.yaml"
-      },
-      {
-        "title": "Kubernetes Ingress with ALB",
-        "text": "../ingress-alb-scenario/scenario.yaml"
       }
     ],
     "assets": {
