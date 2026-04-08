@@ -1,5 +1,5 @@
-slug: alb-ingress-faheem
-id: alb-ingress-faheem
+slug: alb-ingress-scenario
+id: alb-ingress-scenario
 type: kubernetes
 
 title: "Kubernetes Ingress with ALB"
