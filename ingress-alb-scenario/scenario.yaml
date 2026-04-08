@@ -2,6 +2,8 @@ slug: alb-ingress-basic
 id: alb-ingress-basic
 type: kubernetes
 title: "Kubernetes Ingress with AWS ALB Controller"
+intro:
+  file: intro.md
 description: "Deploy a simple application and expose it using Ingress with ALB Controller"
 
 difficulty: intermediate
